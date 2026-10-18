@@ -2957,8 +2957,9 @@ function DebianPreseedProcess() {
 	if [[ "$setAutoConfig" == "1" ]]; then
 		# Debian security mirror of Tsinghua University: https://mirrors.tuna.tsinghua.edu.cn/help/debian/
 		if [[ "$linux_relese" == 'debian' ]]; then
-			[[ "$IsCN" == "cn" ]] && debianSecurityMirror="mirrors.tuna.tsinghua.edu.cn" || debianSecurityMirror="security.debian.org"
-		fi
+            [[ "$IsCN" == "cn" ]] && debianSecurityMirror="mirrors.tuna.tsinghua.edu.cn" || debianSecurityMirror="security.debian.org"
+            [[ "$DebianDistNum" == "11" ]] && debianSecurityMirror="archive.debian.org"
+        fi
 		# Debian linux cloud kernel only include drivers of network adapter can reduce resource usage for most virtual servers.
 		# If target system need to set a raid recipe, to make sure to support more disk controllers, cloud kernel should not be installed.
 		# Reference: https://docs.software-univention.de/installation-4.4.pdf
